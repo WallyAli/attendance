@@ -1,11 +1,11 @@
 class ParentsController < ApplicationController
 
 	def index
-		@parents = %w[fatuma molly jada]
+		@parents = Parent.all
 	end
 
 	def show
-		
+		@parent = Parent.find(params[:id])
 	end
 
 end
