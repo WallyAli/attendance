@@ -21,5 +21,7 @@
 
 <%= link_to 'children', parent_children_path(@parent) %>
 
+<%= link_to 'Delete', parent_path(@parent), method: 'delete', data: { confirm: 'Are you sure?'} %>
+
 <% end %>
 

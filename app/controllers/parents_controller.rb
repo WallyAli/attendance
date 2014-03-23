@@ -8,22 +8,31 @@ class ParentsController < ApplicationController
 		@parent = Parent.find(params[:id])
 	end
 
-	def create_child
-		@parent = Parent.find(params[:id])
-		@child = @parent.children.build(child_params)
-		if @child.save
-			@child = Child.new
+	def new
+		@parent = Parent.new
+	end
+
+	def create
+		@parent = Parent.new(parent_params)
+		if @parent.save
+			redirect_to parents_path, notice: 'Parent record successfully created'
 		else
 			render :new
 		end
 	end
 
-	def destroy
-		
+	def delete
+		@parent = Parent.find(params[:id])
 	end
 
-	def child_params
-	    params.require(:child).permit(:first_name, :last_name, :parent_id)  
+	def destroy
+		@parent = Parent.find(params[:id])
+		@parent.destroy
+		redirect_to parents_path, notice: 'Parent record successfully deleted'
+	end
+
+	def parent_params
+	    params.require(:parent).permit(:first_name, :last_name, :address, :phone)  
 	end
 
 end
