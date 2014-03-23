@@ -42,7 +42,7 @@ class ChildrenController < ApplicationController
 	def destroy
 		@child = @parent.children.find(params[:id])
 		@child.destroy
-		redirect_to parent_path(@parent), notice: 'record successfully deleted'
+		redirect_to parent_children_path(@parent), notice: 'record successfully deleted'
 	end
 
 	private

@@ -4,6 +4,4 @@
 
 <%= link_to 'Edit', edit_parent_child_path(@parent, @child) %> |
 <%= link_to 'children page', parent_children_path(@parent) %> |
-<%= link_to 'back to family page', parent_path(@parent) %>
-<%= link_to 'delete', parent_path(@parent), 
-            method: 'delete', data: {confirm: 'are you sure'} %>
+<%= link_to 'family page', parent_path(@parent) %>
