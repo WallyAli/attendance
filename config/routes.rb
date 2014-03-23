@@ -1,9 +1,9 @@
 Attendance::Application.routes.draw do
   
-  resources :parents do 
+  resources :parents 
       
-      resources :children
-  end
+  resources :children
+  
 
   root "parents#index"
   

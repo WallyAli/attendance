@@ -1,23 +1,19 @@
 <h2>A parent and their children</h2>
 
 <%= form_for @parent do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %></br>
-
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %></br>
-
-  <%= f.label :address %>
-  <%= f.text_field :address %></br>
-
-  <%= f.label :phone %>
-  <%= f.text_field :phone %></br>
  
-  <ul>
+    <%= @parent.first_name %>
+    <%= @parent.last_name %></br>
+    <%= @parent.address %>
+    <%= @parent.phone %></br>
+  
+ 
+  <ol>
   <% @parent.children.each do |child| %>
-    <li><%= link_to child.first_name, parent_children_path(@parent, @child) %></li>
+    <li><%= link_to child.first_name, child %></li>
   <% end %>
-  </ul>
+  </ol>
 
 <%= link_to 'index', parents_path %>
 <% end %>
+
