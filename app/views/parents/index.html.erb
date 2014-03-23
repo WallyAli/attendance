@@ -2,6 +2,6 @@
 
 <ul>
 <% @parents.each do |parent| %>
-  <li><%= link_to parent.first_name, parent %></li>
+  <li><%= link_to parent.first_name, parent %> <%= parent.last_name %></li>
 <% end %>
 </ul>

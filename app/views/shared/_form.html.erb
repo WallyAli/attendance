@@ -1,0 +1,16 @@
+<%= form_for ([@parent, @child]) do |child| %>
+  <p>
+    <%= child.label :first_name %>
+    <%= child.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= child.label :last_name %>
+    <%= child.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= child.submit %>
+  </p>
+<%= link_to 'Back', parent_children_path(@parent) %>
+<% end %>

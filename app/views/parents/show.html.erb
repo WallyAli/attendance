@@ -6,14 +6,17 @@
     <%= @parent.last_name %></br>
     <%= @parent.address %>
     <%= @parent.phone %></br>
+    
   
  
   <ol>
   <% @parent.children.each do |child| %>
-    <li><%= link_to child.first_name, child %></li>
+    <li><%= link_to child.first_name, parent_child_path(@parent, child) %> <%= child.last_name %></li>
   <% end %>
   </ol>
 
-<%= link_to 'index', parents_path %>
+<%= link_to 'home', parents_path %>
+
+<%= link_to 'Add a child', new_parent_child_path(@parent) %>
 <% end %>
 

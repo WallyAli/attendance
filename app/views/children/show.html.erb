@@ -1,5 +1,9 @@
 <h2>Child's detail information</h2>
 
-<%= @child.first_name %></br>
-  
-<%= link_to 'back', parents_path %>
+<%= @child.first_name %> <%= @child.last_name %></br>
+
+<%= link_to 'Edit', edit_parent_child_path(@parent, @child) %> |
+<%= link_to 'children page', parent_children_path(@parent) %> |
+<%= link_to 'back to family page', parent_path(@parent) %>
+<%= link_to 'delete', parent_path(@parent), 
+            method: 'delete', data: {confirm: 'are you sure'} %>
