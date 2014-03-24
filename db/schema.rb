@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323025239) do
+ActiveRecord::Schema.define(version: 20140324040348) do
 
   create_table "children", force: true do |t|
     t.string   "first_name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140323025239) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+    t.integer  "schedule_id"
   end
 
   create_table "parents", force: true do |t|
@@ -26,6 +27,14 @@ ActiveRecord::Schema.define(version: 20140323025239) do
     t.string   "last_name"
     t.string   "address"
     t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schedules", force: true do |t|
+    t.date     "date"
+    t.time     "time_in"
+    t.time     "time_out"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

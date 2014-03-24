@@ -9,14 +9,15 @@
 	first_name = Faker::Name.first_name
     last_name = Faker::Name.last_name
 
-	parents = Parent.create([
-	            				{ first_name: first_name, last_name: last_name}, 
-					            { first_name: first_name, last_name: last_name},
-					            { first_name: first_name, last_name: last_name},
-					            { first_name: first_name, last_name: last_name}
-				        	])
+    parents = ''
+ 	5.times	do
+		parents = Parent.create([{ first_name: first_name, last_name: last_name}])
+	end
+
 	parents.each do |parent|
-		c = Child.create(first_name: first_name, last_name: last_name, parent_id: (parent.id))
+		3.times do 
+			c = Child.create(first_name: first_name, last_name: last_name, parent_id: (parent.id))
+		end
 	end
     
 
