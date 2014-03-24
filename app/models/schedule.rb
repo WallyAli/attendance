@@ -1,5 +1,5 @@
 class Schedule < ActiveRecord::Base
 
-	has_one :parent
-  	has_many :children, :through => :parent
+  	has_many :children
+  	has_many :parents, through: :children
 end

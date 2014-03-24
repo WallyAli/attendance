@@ -1,7 +1,6 @@
 class Parent < ActiveRecord::Base
 	has_many :children, dependent: :destroy
-
-	belongs_to :schedule
+	has_many :schedules, through: :children
 
 	validates :first_name, presence: true
 
