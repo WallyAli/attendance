@@ -1,0 +1,26 @@
+<h2>Add new parent</h2>
+
+<%= form_for @parent do |parent| %>
+  <p>
+    <%= parent.label :first_name %>
+    <%= parent.text_field :first_name %>
+
+    <%= parent.label :last_name %>
+    <%= parent.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= parent.label :address %>
+    <%= parent.text_field :address %>
+  </p></br>
+
+  <p>
+    <%= parent.label :phone %>
+    <%= parent.phone_field :phone %>
+  </p>
+
+  <p>
+    <%= parent.submit %>
+  </p>
+
+  <% end %>

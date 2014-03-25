@@ -1,10 +1,10 @@
 <h2>New schedule</h2>
 
 <%= form_for ([@child, @schedule]) do |schedule| %>
-  <p>
+  <div>
     <%= schedule.label :date %>
-    <%= schedule.date_select :date %>
-  </p>
+    <%= schedule.text_field :date, class: 'datepicker' %>
+  </div>
 
   <p>
     <%= schedule.label :time_in %>
