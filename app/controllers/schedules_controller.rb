@@ -1,5 +1,7 @@
 class SchedulesController < ApplicationController
 
+	before_filter :load_child
+
 	def index
 		@schedules = Schedule.all
 	end
@@ -13,9 +15,9 @@ class SchedulesController < ApplicationController
 	end
 
 	def create
-		@schedule = Schedule.create(schedule_params)
+		@schedule = @child.schedules.new(schedule_params)
 		if @schedule.save
-			redirect_to parent_child_schedule_path(@schedule), notice: 'success'
+			redirect_to schedule_path(@schedule), notice: 'success'
 		else
 			render :new
 		end
@@ -26,5 +28,9 @@ class SchedulesController < ApplicationController
 	def schedule_params
 		params.require(:schedule).permit(
 					   :date, :time_in, :time_out)  
+	end
+
+	def load_child
+		@child = Child.find(params[:id])
 	end
 end

@@ -1,12 +1,10 @@
-<h2>Children</h2>
+<h2> Family Children</h2>
   
 <%= @parent.first_name %> <%= @parent.last_name %>
 <ol>
 <% @children.each do |child| %>
-  <li><%= link_to "#{child.first_name} #{child.last_name}", parent_child_path(@parent, child) %>    |
-   <%= link_to 'Destroy', [@parent, child], method: 'delete', data: { confirm: 'Are you sure?' } %></li>
+  <li><%= link_to child.first_name, child_path(child) %></li>
 <% end %>
 </ol>
 
-<%= link_to 'family', parent_path(@parent) %>
 

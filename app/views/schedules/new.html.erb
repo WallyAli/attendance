@@ -1,0 +1,23 @@
+<h2>New schedule</h2>
+
+<%= form_for ([@child, @schedule]) do |schedule| %>
+  <p>
+    <%= schedule.label :date %>
+    <%= schedule.date_select :date %>
+  </p>
+
+  <p>
+    <%= schedule.label :time_in %>
+    <%= schedule.time_select :time_in %>
+  </p>
+
+  <p>
+    <%= schedule.label :time_out %>
+    <%= schedule.time_select :time_out %>
+  </p>
+
+  <%= schedule.submit %>
+
+  <%= link_to 'child-show-page', child_path(@child) %>
+
+<% end %> 

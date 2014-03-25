@@ -1,12 +1,12 @@
 class ChildrenController < ApplicationController
-	before_filter :load_parent
+	before_filter :load_parent, only: [:index, :new, :create ]
 
 	def index
 		@children = @parent.children.all 
 	end
 
 	def show
-		@child = @parent.children.find(params[:id])
+		@child = Child.find(params[:id])
 	end
 
 	def new

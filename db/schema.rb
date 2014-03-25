@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140324070917) do
+ActiveRecord::Schema.define(version: 20140325001902) do
 
   create_table "children", force: true do |t|
     t.string   "first_name"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20140324070917) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
-    t.integer  "schedule_id"
   end
 
   create_table "parents", force: true do |t|
@@ -37,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140324070917) do
     t.time     "time_out"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "child_id"
   end
 
 end

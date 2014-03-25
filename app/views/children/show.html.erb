@@ -2,7 +2,12 @@
 
 <%= @child.first_name %> <%= @child.last_name %></br>
 
-<%= link_to 'Edit', edit_parent_child_path(@parent, @child) %> |
-<%= link_to 'children page', parent_children_path(@parent) %> |
-<%= link_to 'family page', parent_path(@parent) %> |
-<%= link_to 'schedule', parent_child_schedule_path(@parent, @schedule, @child) %>
+<ul>
+<% @child.schedules.each do |schedule| %>
+  <li><%= schedule.date %></li>
+  <li><%= schedule.time_in %></li>
+  <li><%= schedule.time_out %></li>
+<% end %></br>
+
+<%= link_to 'create schedule', new_child_schedule_path(
+@child) %>

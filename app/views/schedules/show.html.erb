@@ -1,0 +1,8 @@
+<h2>Child's schedule</h2>
+  <%= @child.first_name %> <%= @child.last_name %>
+<ul>
+<li><%= @schedule.date %></li>
+<li><%= @schedule.time_in %></li>
+<li><%= @schedule.time_out %></li>
+
+<%= link_to 'Child-show-page', child_path(@child) %>
