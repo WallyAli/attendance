@@ -9,5 +9,10 @@
   <li><%= schedule.time_out %></li>
 <% end %></br>
 
+<p>
 <%= link_to 'create schedule', new_child_schedule_path(
-@child) %>
+@child) %> ||
+
+<%= link_to 'Delete Child', parent_path(@child), method: 'delete', data: { confirm: 'Are you sure?'} %>
+</p>
+

@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
 
-	before_filter :load_child
+	before_filter :load_child, except: :show
 
 	def index
 		@schedules = Schedule.all
@@ -31,6 +31,6 @@ class SchedulesController < ApplicationController
 	end
 
 	def load_child
-		@child = Child.find(params[:id])
+		@child = Child.find(params[:child_id])
 	end
 end

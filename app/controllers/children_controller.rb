@@ -1,5 +1,5 @@
 class ChildrenController < ApplicationController
-	before_filter :load_parent, only: [:index, :new, :create ]
+	before_filter :load_parent, only: [:index, :create, :new]
 
 	def index
 		@children = @parent.children.all 
@@ -23,11 +23,11 @@ class ChildrenController < ApplicationController
 	end
 
 	def edit
-		@child = @parent.children.find(params[:id])
+		@child = Child.find(params[:id])
 	end
 
 	def update
-		@child = @parent.children.find(params[:id])
+		@child = Child.find(params[:id])
 		if @child.update(child_params)
 			redirect_to parent_path(@parent), notice: 'record successfully updated'
 		else
@@ -36,11 +36,11 @@ class ChildrenController < ApplicationController
 	end
 
 	def delete
-		@child = @parent.children.find(params[:id])
+		@child = Child.find(params[:id])
 	end
 
 	def destroy
-		@child = @parent.children.find(params[:id])
+		@child = Child.find(params[:id])
 		@child.destroy
 		redirect_to parent_children_path(@parent), notice: 'record successfully deleted'
 	end
@@ -49,6 +49,7 @@ class ChildrenController < ApplicationController
 
 	def load_parent
 		@parent = Parent.find(params[:parent_id])
+
 	end
 
 	def child_params
