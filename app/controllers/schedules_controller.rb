@@ -4,8 +4,10 @@ class SchedulesController < ApplicationController
 
 	def index
 		@schedules = Schedule.all
-		@schedules_by_date = @schedules.group_by(&:date)
+		@child = Child.find(params[:child_id])
+		@schedules_by_date = @child.schedules.group_by(&:date)
 		@date = params[:date] ? Date.parse(params[:date]) : Date.today
+
 	end
 
 	def show

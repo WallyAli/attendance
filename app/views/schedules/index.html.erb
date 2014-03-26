@@ -1,6 +1,6 @@
 <h2>Children's schedule</h2>
 
-
+<%= @child.first_name %> <%= @child.last_name %>
 
 <div id="schedules">
   <h2 id="month">
@@ -14,7 +14,9 @@
     <% if @schedules_by_date[date] %>
     <ul>
       <% @schedules_by_date[date].each do |schedule| %>
-        <li><%= link_to schedule.date, schedule %></li>
+        <li><%= link_to child_full_name, schedule %></li>
+        <li><%= schedule.time_in.strftime("%m/%d/%Y") %></li>
+        <li><%= schedule.time_out.strftime("%m/%d/%Y") %></li>
       <% end %>
     </ul>
     <% end %>
