@@ -1,1 +1,22 @@
 <h2>Children's schedule</h2>
+
+
+
+<div id="schedules">
+  <h2 id="month">
+      <%= link_to "<", date: @date.prev_month %>
+      <%= @date.strftime("%B %Y") %>   
+      <%= link_to ">", date: @date.next_month %>
+  </h2>
+
+  <%= schedule @date do |date| %>
+    <%= date.day %>
+    <% if @schedules_by_date[date] %>
+    <ul>
+      <% @schedules_by_date[date].each do |schedule| %>
+        <li><%= link_to schedule.date, schedule %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  <% end %>
+</div>

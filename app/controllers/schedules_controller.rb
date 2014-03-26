@@ -4,6 +4,8 @@ class SchedulesController < ApplicationController
 
 	def index
 		@schedules = Schedule.all
+		@schedules_by_date = @schedules.group_by(&:date)
+		@date = params[:date] ? Date.parse(params[:date]) : Date.today
 	end
 
 	def show
