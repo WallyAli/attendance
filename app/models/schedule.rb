@@ -1,5 +1,6 @@
 class Schedule < ActiveRecord::Base
 
-  	belongs_to :child
-  	
+  	has_many :children, dependent: :destroy
+  	has_many :parents, through: :children
+
 end

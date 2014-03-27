@@ -1,8 +1,26 @@
 <h2>Child's schedule</h2>
-  Child_id: <%= @schedule.child_id %>
-<ul>
-<li><%= @schedule.date %></li>
-<li><%= @schedule.time_in %></li>
-<li><%= @schedule.time_out %></li>
+
+<p><%= @schedule.date %></p>
+<p><%= @schedule.time_in %></p>
+<p><%= @schedule.time_out %></p>
+
+<div id="schedules">
+  <h2 id="month">
+      <%= link_to "<", date: @date.prev_month %>
+      <%= @date.strftime("%B %Y") %>   
+      <%= link_to ">", date: @date.next_month %>
+  </h2>
+
+  <%= schedule @date do |date| %>
+    <%= date.day %>
+    <% if @children_by_date[date] %>
+    <ul>
+      <% @children_by_date[date].each do |child| %>
+        <li><%= link_to child.name, child %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  <% end %>
+</div>
 
 <%= link_to 'Home', root_path %>

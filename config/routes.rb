@@ -1,10 +1,10 @@
 Attendance::Application.routes.draw do
   
   resources :parents, shallow: true do 
-    resources :children do 
-      resources :schedules
-    end
-  end 
+    resources :children   
+  end
+
+  resources :schedules
 
   root "parents#index"
   

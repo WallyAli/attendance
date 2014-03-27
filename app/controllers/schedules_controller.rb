@@ -1,17 +1,17 @@
 class SchedulesController < ApplicationController
 
-	before_filter :load_child, except: :show
+	before_filter :load_child, except: [:show, :index]
 
 	def index
 		@schedules = Schedule.all
-		@child = Child.find(params[:child_id])
-		@schedules_by_date = @child.schedules.group_by(&:date)
-		@date = params[:date] ? Date.parse(params[:date]) : Date.today
+		
 
 	end
 
 	def show
 		@schedule = Schedule.find(params[:id])
+		@children_by_date = @schedule.children.group_by(&:date)
+		@date = params[:date] ? Date.parse(params[:date]) : Date.today
 	end
 
 	def new

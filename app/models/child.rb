@@ -1,6 +1,6 @@
 class Child < ActiveRecord::Base
 	belongs_to :parent
-	has_many :schedules, dependent: :destroy
+	belongs_to :schedule
 
 	validates :first_name, presence: true
 	validates :last_name, presence: true

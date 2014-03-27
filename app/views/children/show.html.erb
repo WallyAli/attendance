@@ -2,15 +2,10 @@
 
 <%= @child.first_name %> <%= @child.last_name %></br>
 
-<ul>
-<% @child.schedules.each do |schedule| %>
-  <li><%= schedule.date %></li>
-  <li><%= schedule.time_in %></li>
-  <li><%= schedule.time_out %></li>
-<% end %></br>
+
 
 <p>
-<%= link_to 'create schedule', new_child_schedule_path(
+<%= link_to 'create schedule', new_schedule_path(
 @child) %> ||
 
 <%= link_to 'Delete', child_path(@child), method: 
