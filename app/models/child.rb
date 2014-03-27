@@ -1,4 +1,6 @@
 class Child < ActiveRecord::Base
+
+	has_many :calendars
 	belongs_to :parent
 	belongs_to :schedule
 

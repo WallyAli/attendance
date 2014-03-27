@@ -1,5 +1,6 @@
 Attendance::Application.routes.draw do
   
+  get "calendars/index"
   resources :parents, shallow: true do 
     resources :children   
   end

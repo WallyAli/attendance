@@ -9,6 +9,16 @@
     <%= child.text_field :last_name %>
   </p>
 
+  <div class="category-control">
+    <%= child.label :day %>
+    <% Calendar.all.order(day: :asc).each do |day| %>
+     <div>
+        <%= check_box_tag day %>
+        <%= day.day %>
+    </div>
+    <% end %>
+  </div>
+
   <p>
     <%= child.submit %>
   </p>
