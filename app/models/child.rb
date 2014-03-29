@@ -11,4 +11,5 @@ class Child < ActiveRecord::Base
 	validates :last_name, presence: true
 	# validates :day, presence: true
 	validates :parent_id, presence: true
+
 end

@@ -8,13 +8,22 @@
     <%= child.label :last_name %>
     <%= child.text_field :last_name %>
   </p>
-    <p>
-    <%= child.label :day %>
-    <%= scheduled_days %>
 
-  </p>
+    <p>
+    <%= child.label :day%>
+
+<% %w{monday tuesday wednesday thursday friday saturday sunday}.each do |day| %>
+  <%= child.check_box :day, {}, "#{day}" %>
+  <label><%= day.camelcase %></label>
+<% end %>
 
   <p>
-    <%= child.submit %>
+
+<!--     <%= child.select :day, Date::DAYNAMES.zip((0..6).to_a) %>
+ -->  
+
+
   </p>
+
+    <p><%= child.submit %></p>
 <% end %>

@@ -1,7 +1,5 @@
 class SchedulesController < ApplicationController
 
-	before_filter :load_child, except: [:show, :index]
-
 	def index
 		@schedules = Schedule.all
 		
@@ -32,9 +30,5 @@ class SchedulesController < ApplicationController
 	def schedule_params
 		params.require(:schedule).permit(
 					   :date, :time_in, :time_out)  
-	end
-
-	def load_child
-		@child = Child.find(params[:child_id])
 	end
 end
