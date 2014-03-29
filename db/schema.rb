@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327064621) do
+ActiveRecord::Schema.define(version: 20140328055546) do
 
   create_table "calendars", force: true do |t|
     t.text     "day"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "child_id"
+  end
+
+  create_table "calendars_children", id: false, force: true do |t|
+    t.integer "calendar_id", null: false
+    t.integer "child_id",    null: false
   end
 
   create_table "children", force: true do |t|
@@ -27,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140327064621) do
     t.integer  "parent_id"
     t.integer  "schedule_id"
     t.text     "day"
+    t.integer  "calendar_id"
   end
 
   create_table "parents", force: true do |t|

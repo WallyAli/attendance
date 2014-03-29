@@ -8,19 +8,13 @@
     <%= child.label :last_name %>
     <%= child.text_field :last_name %>
   </p>
-
-  <div class="category-control">
+    <p>
     <%= child.label :day %>
-    <% Calendar.all.order(day: :asc).each do |day| %>
-     <div>
-        <%= check_box_tag day %>
-        <%= day.day %>
-    </div>
-    <% end %>
-  </div>
+    <%= scheduled_days %>
+
+  </p>
 
   <p>
     <%= child.submit %>
   </p>
-<%= link_to 'Back', parent_children_path(@parent) %>
 <% end %>

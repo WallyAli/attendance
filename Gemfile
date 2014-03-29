@@ -4,6 +4,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.3'
 gem 'faker', '~> 1.3.0'
 gem 'jquery-ui-rails'
+gem 'ice_cube'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

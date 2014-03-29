@@ -1,4 +1,4 @@
 class Calendar < ActiveRecord::Base
-	belongs_to :child
+	has_and_belongs_to_many :children
 
 end
